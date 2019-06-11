@@ -1,8 +1,5 @@
 package com.test.spring.mvc.domain;
 
-import org.springframework.context.annotation.Scope;
-
-@Scope("prototype")
 public class Address {
 
     private String street;

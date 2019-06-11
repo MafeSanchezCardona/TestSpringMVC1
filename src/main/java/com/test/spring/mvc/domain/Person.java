@@ -1,10 +1,7 @@
 package com.test.spring.mvc.domain;
 
-import org.springframework.context.annotation.Scope;
-
 import java.util.Date;
 
-@Scope("prototype")
 public class Person {
 
     private String name;

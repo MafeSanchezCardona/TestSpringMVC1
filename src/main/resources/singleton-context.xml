@@ -11,6 +11,6 @@
 
     <context:annotation-config />
 
-    <import resource="prototype-context.xml"/>
-    <import resource="singleton-context.xml"/>
+    <bean id="address" class="com.test.spring.mvc.manager.PersonManager"/>
+
 </beans>

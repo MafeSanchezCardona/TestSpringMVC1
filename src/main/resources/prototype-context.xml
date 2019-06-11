@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.test.spring"/>
+
+    <context:annotation-config />
+
+    <bean id="dateFormater" class="java.text.SimpleDateFormat">
+        <constructor-arg value="dd-MM-yyyy" />
+    </bean>
+
+    <bean id="dateBirthDate" factory-bean="dateFormater" factory-method="parse">
+        <constructor-arg value="23-03-1994" />
+    </bean>
+
+    <bean id="address1" class="com.test.spring.mvc.domain.Address" scope="prototype">
+        <property name="street" value="Calle 17" />
+        <property name="apartment" value="1908" />
+        <property name="number" value="34" />
+    </bean>
+
+    <bean id="address2" class="com.test.spring.mvc.domain.Address" scope="prototype">
+        <property name="street" value="Calle 17" />
+        <property name="apartment" value="1908" />
+        <property name="number" value="34" />
+    </bean>
+
+    <bean id="person1" class="com.test.spring.mvc.domain.Person" scope="prototype">
+        <constructor-arg index="0" value="Maria" />
+        <constructor-arg index="1" value="Sanchez" />
+        <constructor-arg index="2" value="19" />
+        <constructor-arg index="3" ref="dateBirthDate" />
+        <constructor-arg index="4" ref="address1" />
+    </bean>
+
+    <bean id="person2" class="com.test.spring.mvc.domain.Person" scope="prototype">
+        <constructor-arg index="0" value="Fernanda" />
+        <constructor-arg index="1" value="Cardona" />
+        <constructor-arg index="2" value="20" />
+        <constructor-arg index="3" ref="dateBirthDate" />
+        <constructor-arg index="4" ref="address2" />
+    </bean>
+
+    <bean id="personaList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="person1" />
+                <ref bean="person2" />
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
