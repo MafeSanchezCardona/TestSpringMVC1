@@ -11,6 +11,8 @@
 
     <context:annotation-config />
 
+    <context:property-placeholder location="classpath:config.properties" />
+
     <import resource="prototype-context.xml"/>
     <import resource="singleton-context.xml"/>
 </beans>

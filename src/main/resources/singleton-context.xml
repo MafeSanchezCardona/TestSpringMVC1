@@ -11,6 +11,6 @@
 
     <context:annotation-config />
 
-    <bean id="address" class="com.test.spring.mvc.manager.PersonManager"/>
+    <bean id="personManager" class="com.test.spring.mvc.manager.PersonManager"/>
 
 </beans>
